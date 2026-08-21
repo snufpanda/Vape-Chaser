@@ -1,0 +1,17 @@
+# Godot 4 — engine-generated, never commit
+.godot/
+/android/
+/build/
+/export/
+
+# Godot export config can hold signing keys and absolute paths
+export_presets.cfg
+
+# Godot 3 leftovers
+.import/
+*.translation
+
+# OS junk
+Thumbs.db
+desktop.ini
+.DS_Store
