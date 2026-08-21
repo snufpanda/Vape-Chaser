@@ -112,6 +112,10 @@ git push          # before you walk away
 
 Small commits. If you're about to touch something the other person is likely in, say so first — that one message prevents most of the pain.
 
+## Art and sound
+
+See [ASSETS.md](ASSETS.md) — sizes, the palette as it actually exists in code, where files go, how to swap a placeholder circle for a sprite, and the full list of events that need sound.
+
 ## Known open question
 
 Nothing chases you any more. Vapers and cloud-chasers are harmless, and bongs never move — so the only pressure is the arena slowly filling with people you can't see.
