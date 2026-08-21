@@ -1,4 +1,4 @@
-# Second Hand
+# Vape-Chaser
 
 A wave-survival roguelite where the enemies are vapers, smokers and one cigar-smoking boss.
 
