@@ -82,6 +82,36 @@ No physics bodies, no collision layers, no scene tree to speak of — everything
 
 ---
 
+## Working together
+
+Godot has no built-in collaboration — no shared session, no multi-user editing. Git is it. Two people, one repo, pull before you start and push when you stop.
+
+Three rules, all Godot-specific, all learned the hard way by everyone:
+
+**1. Same Godot version. Non-negotiable.**
+This project is on **4.7.2**. If one of us opens it in a different minor version, the engine silently rewrites `project.godot` and the `.uid` files, and every pull turns into a fight over changes neither of us made. Check `Help → About` before your first run.
+
+**2. Never both edit the same `.tscn` at the same time.**
+Scene files are generated text with internal node IDs. Git cannot merge them meaningfully — a conflict in a `.tscn` usually means throwing one person's work away and redoing it. Same goes for any binary asset (`.png`, `.wav`): one owner per file, say out loud who's holding it.
+
+Right now this project is *almost entirely code* and has exactly one nearly-empty scene, which makes it about as merge-safe as a Godot project ever gets. Worth keeping that way for as long as possible — build things in script, not in the scene tree, until there's a real reason not to.
+
+**3. Let `.godot/` stay ignored.**
+It's the engine's local import cache. It regenerates on open, it differs per machine, and committing it produces enormous meaningless diffs. It's already in `.gitignore` — leave it there.
+
+The `.gd.uid` files, on the other hand, **are** committed on purpose. Godot 4.4+ uses them to keep script references stable. Deleting them breaks links on the other machine.
+
+### Day-to-day
+
+```
+git pull          # before you open the editor
+git add -A
+git commit -m "what you changed"
+git push          # before you walk away
+```
+
+Small commits. If you're about to touch something the other person is likely in, say so first — that one message prevents most of the pain.
+
 ## Known open question
 
 Nothing chases you any more. Vapers and cloud-chasers are harmless, and bongs never move — so the only pressure is the arena slowly filling with people you can't see.
